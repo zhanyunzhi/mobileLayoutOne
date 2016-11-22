@@ -1,0 +1,89 @@
+@charset "UTF-8";
+//-----------------------------------------------------  
+// mixin scss
+// 包括常用的mixin，%及@function
+// mixin，通过@include调用，样式通过拷贝的方式使用，尤其适用于传递参数
+// %，通过@extend调用，样式通过组合申明的方式使用，适用于不传参数的代码片段  
+// @function，返回一个值，用于调用
+//-----------------------------------------------------
+
+// mixin & %
+// 既定义了mixin也定义了%，根据需求使用@include或@extend调用
+// 自己根据项目要求新增的一些mixin
+//-----------------------------------------------------
+@mixin px2px($name, $px){
+  $name: round($px / 2) * 1px;
+  [data-dpr="2"] {
+    $name: $px * 1px;
+  }
+  // for mx3
+  [data-dpr="2.5"] {
+    $name: round($px * 2.5 / 2) * 1px;
+  }
+  // for 小米note
+  [data-dpr="2.75"] {
+    $name: round($px * 2.75 / 2) * 1px;
+  }
+  [data-dpr="3"] {
+    $name: round($px / 2 * 3) * 1px
+  }
+  // for 三星note4
+  & [data-dpr="4"] {
+    $name: $px * 2px;
+  }
+}
+//空心箭头
+%arrow-basic{
+  content:"";
+  display: inline-block;
+}
+@mixin arrow($direction,$size,$color){
+  @extend %arrow-basic;
+  width: $size;
+  height: $size;
+  border-top: 1px solid $color;  /* 上边框的宽 */
+  border-right: 1px solid $color; /* 右边框的宽 */
+  @if $direction == top {
+    @include rotate(-45deg);
+  }
+  @else if $direction == right {
+    @include rotate(45deg);
+  }
+  @else if $direction == bottom {
+    @include rotate(135deg);
+  }
+  @else if $direction == left {
+    @include rotate(-135deg);
+  }
+  //transform: rotate(45deg);
+}
+/*实心箭头，弧度更大的*/
+%triangle-steep-basic{
+  display: inline-block;
+  content:"";
+  width: 0;
+  height: 0;
+}
+@mixin triangle-steep($direction,$size,$color){
+  @extend %triangle-steep-basic;
+  @if $direction == top {
+    border-left: $size solid transparent;
+    border-bottom: $size * 2 solid $color;
+    border-right: $size solid transparent;
+  }
+  @else if $direction == right {
+    border-top: $size solid transparent;
+    border-left: $size * 2 solid $color;
+    border-bottom: $size solid transparent;
+  }
+  @else if $direction == bottom {
+    border-left: $size solid transparent;
+    border-top: $size * 2 solid $color;
+    border-right: $size solid transparent;
+  }
+  @else if $direction == left {
+    border-top: $size solid transparent;
+    border-right: $size * 2 solid $color;
+    border-bottom: $size solid transparent;
+  }
+}

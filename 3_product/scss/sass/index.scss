@@ -5,12 +5,17 @@
 @import "core/_media-queries";
 @import "core/_mixin";
 @import "core/_grid";
+@import "core/_zyz";
 
 @import "module/_global";
 .test{
   @include px2rem(width, 750px);
   @include px2rem(height, 150px);
   background-color: blue;
+  @include px2rem(font-size,28px);
+  @include iphone5(){
+    @include px2rem(font-size,98px);
+  }
 }
 .flex-ul{
   @extend %flex;
@@ -23,4 +28,13 @@
 }
 .flex{
   @extend %flex;
+}
+.tt{
+  @include triangle(top,12px,#000)
+}
+.tt2{
+  @include triangle-steep(top,6px,#000)
+}
+.tt3{
+  @include arrow(top,12px,#000);
 }

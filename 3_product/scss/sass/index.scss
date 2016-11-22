@@ -1,0 +1,26 @@
+// import core file
+//-----------------------------------------------------
+@import "core/_setting";
+@import "core/_css3";
+@import "core/_media-queries";
+@import "core/_mixin";
+@import "core/_grid";
+
+@import "module/_global";
+.test{
+  @include px2rem(width, 750px);
+  @include px2rem(height, 150px);
+  background-color: blue;
+}
+.flex-ul{
+  @extend %flex;
+  align-items: center;
+  justify-content: center;
+  li{
+    flex:1;
+    @include horizontal-line(1px solid $black, 10px);
+  }
+}
+.flex{
+  @extend %flex;
+}

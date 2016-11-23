@@ -12,24 +12,21 @@
 // 自己根据项目要求新增的一些mixin
 //-----------------------------------------------------
 @mixin px2px($name, $px){
-  $name: round($px / 2) * 1px;
-  [data-dpr="2"] {
-    $name: $px * 1px;
+  #{$name}: round($px / 2) * 1;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    #{$name}: $px * 1;
   }
-  // for mx3
-  [data-dpr="2.5"] {
-    $name: round($px * 2.5 / 2) * 1px;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2.5) {
+    #{$name}: round($px * 2.5 / 2) * 1;
   }
-  // for 小米note
-  [data-dpr="2.75"] {
-    $name: round($px * 2.75 / 2) * 1px;
+  @media only screen and (-webkit-min-device-pixel-ratio: 2.75) {
+    #{$name}: round($px * 2.75 / 2) * 1;
   }
-  [data-dpr="3"] {
-    $name: round($px / 2 * 3) * 1px
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    #{$name}: round($px * 3 / 2) * 1;
   }
-  // for 三星note4
-  & [data-dpr="4"] {
-    $name: $px * 2px;
+  @media only screen and (-webkit-min-device-pixel-ratio: 4) {
+    #{$name}: $px * 2;
   }
 }
 //空心箭头

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -9,10 +9,14 @@
     <meta name="viewport">
     <title>移动端适配测试</title>
     <script src="assets/js/index.js"></script>
+    <script src="assets/lib/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/directive.js"></script>
     <link href="assets/css/index.css" rel="stylesheet">
 </head>
-<body>
-    <div class="test">啦啦啦</div>
+<body ng-controller="appController">
+    <div class="test">啦啦啦{{vm.t}}</div>
+    <hello></hello>
     <ul class="flex-ul">
         <li>1</li>
         <li>2</li>
@@ -21,5 +25,15 @@
     <div class="tt"></div>
     <div class="tt2"></div>
     <div class="tt3"></div>
+    <ul class="ul-has-style">
+        <li>some content</li>
+    </ul>
+    <button>simpleButton</button>
+    <expander class='expander' expander-title='title'>
+        {{text}}
+    </expander>
+    <hello-world2 title = '我是第二个directive'></hello-world2>
+    父亲:{{name}}<input ng-model="name" />
+    <div my-directive></div>
 </body>
 </html>

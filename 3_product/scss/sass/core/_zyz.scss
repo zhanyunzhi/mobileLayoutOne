@@ -11,6 +11,7 @@
 // 既定义了mixin也定义了%，根据需求使用@include或@extend调用
 // 自己根据项目要求新增的一些mixin
 //-----------------------------------------------------
+//利用媒体查询，对不同的dpr下的设备使用不同的字体大小，使其在不同的dpr下显示的大小一样
 @mixin px2px($name, $px){
   #{$name}: round($px / 2) * 1;
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {

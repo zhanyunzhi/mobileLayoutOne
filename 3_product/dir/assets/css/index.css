@@ -71,6 +71,9 @@ input[type="submit"], input[type="reset"], input[type="button"], button {
   bottom: 60px;
   cursor: pointer;
 }*/
+body {
+  font-size: 0.42667rem; }
+
 .test {
   width: 10rem;
   height: 2rem;
@@ -110,9 +113,9 @@ input[type="submit"], input[type="reset"], input[type="button"], button {
   border-right: 0.16rem dashed transparent; }
 
 .tt2 {
-  border-left: 6px solid transparent;
-  border-bottom: 12px solid #000;
-  border-right: 6px solid transparent; }
+  border-left: 20px solid transparent;
+  border-bottom: 40px solid #000;
+  border-right: 20px solid transparent; }
 
 .tt3 {
   width: 0.16rem;
@@ -124,3 +127,35 @@ input[type="submit"], input[type="reset"], input[type="button"], button {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg); }
+
+.ul-has-style {
+  margin-left: 25px;
+  list-style: disc; }
+
+button {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  font-size: 12px;
+  padding: 0  15px;
+  line-height: 28px;
+  color: #fff;
+  background-color: #0078E7;
+  border: 0 none; }
+  button:hover {
+    color: #fff;
+    background-color: #006bce; }
+
+.expander {
+  border: 1px solid black;
+  width: 250px; }
+
+.expander > .title {
+  background-color: black;
+  color: white;
+  padding: .1em .3em;
+  cursor: pointer; }
+
+.expander > .body {
+  padding: .1em .3em; }

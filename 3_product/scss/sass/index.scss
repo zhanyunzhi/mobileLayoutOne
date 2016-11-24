@@ -8,6 +8,9 @@
 @import "core/_zyz";
 
 @import "module/_global";
+body{
+  @include px2rem(font-size,32px);
+}
 .test{
   @include px2rem(width, 750px);
   @include px2rem(height, 150px);
@@ -33,8 +36,30 @@
   @include triangle(top,pxToRem(12px),#000)
 }
 .tt2{
-  @include triangle-steep(top,6px,#000)
+  @include triangle-steep(top,20px,#000)
 }
 .tt3{
   @include arrow(top,pxToRem(12px),#000);
+}
+.ul-has-style{
+  @include ul-has-style()
+}
+button{
+  @include simple-btn()
+}
+
+.expander {
+  border: 1px solid black;
+  width: 250px;
+}
+
+.expander>.title {
+  background-color: black;
+  color: white;
+  padding: .1em .3em;
+  cursor: pointer;
+}
+
+.expander>.body {
+  padding: .1em .3em;
 }
